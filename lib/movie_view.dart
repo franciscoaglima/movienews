@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'movie_controller.dart';
@@ -24,25 +22,20 @@ class _MovieViewState extends State<MovieView> {
                   child: Stack(
                     children: [
                       Container(
-                        color:Colors.redAccent,
+                        color:Colors.white,
                         height: 820,
                         width: 400,
-                        padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                       ),
                       Center(
                         child: Container(
-                        color:Colors.red,
                         height: 730,
-                        width: 360,                          
+                        width: 390,  
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.amber,),                      
                         ),
                       ),
-                      Center(
-                        child: Container(
-                        color:Colors.brown,
-                        height: 640,
-                        width: 320,                          
-                        ),
-                      ),                      
+//                     Center(child: Container(height: 640,width: 320,
+//                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.blue,), ),),                      
                     ],
                  )
                 )  
