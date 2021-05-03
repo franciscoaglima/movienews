@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Movies New - API",
+//      title: "Movies New - API",
       home: MovieView(),
     );
   }

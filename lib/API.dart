@@ -6,23 +6,30 @@ class API {
 
   Map<String,String> queryParameters;
 
-  Future<Movie> fetchMovie(int num) async {
+  Future<List<MovieDetalhes>> fetchMovie(int num) async {
+
+  String authority = "api.themoviedb.org";   
+  String path = "/3/movie/upcoming";
  
-   final url =  Uri.https("api.themoviedb.org", "/3/movie/upcoming", queryParameters = {"api_key":"a5c05fb630c9b7dc560033345fa13e",});
+   final url =  Uri.https(authority, path , queryParameters = {"api_key":"a5bc05fb630c9b7fdc560033345fa13e",});
 
    final response = await http.get(url);
-  
+
   var responseJson;
+  List listMovie;
 
    if (response.statusCode == 200) {
-     print("Conexão ok !");
-     responseJson  = (jsonDecode(response.body));
-  
+       responseJson  = (jsonDecode(response.body)); // Transformar para objeto Map
+       listMovie = responseJson["results"] as List; // Transformar em List
+
+       final arrayMovies = listMovie.map((movie){
+        return MovieDetalhes.fromJson(movie); // Transformar em objeto MovieDetalhes
+       }).toList();
+       return arrayMovies;
+
    } else {
      return Future.error("Filme Não Localizado...");
    }
-  print (responseJson);
-  return responseJson;
 
   }
 

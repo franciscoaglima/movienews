@@ -8,7 +8,7 @@ class MovieController {
      final model = MovieModel();
      int num = 0;
 
-     Future<Movie> get movie {
+     Future<List<MovieDetalhes>> get movie {
        return model.movie;
      }
  

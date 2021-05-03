@@ -5,9 +5,9 @@ import 'API.dart';
 
 class MovieModel {
 
-  Future<Movie> _movie;
+  Future<List<MovieDetalhes>>  _movie;
 
-  Future<Movie> get movie {
+  Future<List<MovieDetalhes>>  get movie {
     return _movie;
   }
 

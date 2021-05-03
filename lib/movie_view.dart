@@ -30,8 +30,8 @@ class _MovieViewState extends State<MovieView> {
                     ),
              Center(child: Column(mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FutureBuilder<Movie>(future: controller.movie,builder: (context,snapshot) {
-                           if (snapshot.connectionState != ConnectionState.done) {return CircularProgressIndicator();}
+                      FutureBuilder<List<MovieDetalhes>> (future: controller.movie,builder: (context,snapshot) {
+                        if (snapshot.connectionState != ConnectionState.done) {return CircularProgressIndicator();}
                             if (snapshot.hasData) {
                               return Column(  
                                 children: [
@@ -49,7 +49,7 @@ class _MovieViewState extends State<MovieView> {
                                       itemBuilder: (
                                        BuildContext context ,int index) {
                                         return ListTile(
-                                          title: Text(snapshot.data.details[index].titulo),
+                                          title: Text(snapshot.data[index].titulo),
                                           );
                                         }
                                        ),
