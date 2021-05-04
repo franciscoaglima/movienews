@@ -13,6 +13,7 @@ class _MovieViewState extends State<MovieView> {
 
     final controller = MovieController();
 
+    // Inicializa o load dos filmes
     @override
     void initState() {
       super.initState();
@@ -42,10 +43,10 @@ class _MovieViewState extends State<MovieView> {
                             if (snapshot.hasData) {
                               return Column(  
                                 children: [
-                                  Text("Código",
+                                  Text("Movies New",
                                   style: TextStyle(
                                     fontSize: 20,
-                                    color: Colors.black),
+                                    color: Colors.white),
                                     ),                                  
                                   Container( 
 //                                    color: Colors.yellow,
@@ -57,7 +58,8 @@ class _MovieViewState extends State<MovieView> {
                                       itemBuilder: (
                                        BuildContext context ,int index) {
                                         return ListTile(
-                                          title: Text(snapshot.data[index].titulo),
+//                                          title: Text(snapshot.data[index].titulo),
+                                            title: Image.network("https://image.tmdb.org/t/p/w300"+snapshot.data[index].urlImage),
                                           );
                                         }
                                        ),
