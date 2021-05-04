@@ -13,6 +13,13 @@ class _MovieViewState extends State<MovieView> {
 
     final controller = MovieController();
 
+    @override
+    void initState() {
+      super.initState();
+      controller.loadMovie();
+
+   }
+
     Widget build(BuildContext context) {
        return Scaffold(
          body: Column(
@@ -25,7 +32,7 @@ class _MovieViewState extends State<MovieView> {
                       Container(
                         height: 820,
                         width: 400,
-                        color: Colors.pink,
+                        color: Colors.red,
                    // decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.amber,),
                     ),
              Center(child: Column(mainAxisAlignment: MainAxisAlignment.center,
@@ -41,11 +48,12 @@ class _MovieViewState extends State<MovieView> {
                                     color: Colors.black),
                                     ),                                  
                                   Container( 
-                                    color: Colors.yellow,
-                                    height: 80,
-                                    width: 280,
+//                                    color: Colors.yellow,
+                                    height: 720,
+                                    width: 370,
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.pink,),
                                    child: ListView.builder(
-                                     itemCount: 2,
+                                     itemCount: 18,
                                       itemBuilder: (
                                        BuildContext context ,int index) {
                                         return ListTile(
@@ -67,7 +75,7 @@ class _MovieViewState extends State<MovieView> {
                             return Container();
                           },
                          ),
-                      ElevatedButton(onPressed: () {setState(() {controller.loadMovie();});}, child: Text("Load Filmes"),)
+//                      ElevatedButton(onPressed: () {setState(() {controller.loadMovie();});}, child: Text("Load Filmes"),)
                     ],),),
 
 //                     Center(child: Container(height: 640,width: 320,
