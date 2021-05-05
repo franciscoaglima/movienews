@@ -55,8 +55,8 @@ class _MovieViewState extends State<MovieView> {
                                     ),                                  
                                   Container( 
                                   
-                                    height: 740,
-                                    width: 370,
+                                    height: 720,
+                                    width: 360,
                                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.pink,),
                                   
                                    child: ListView.builder(
