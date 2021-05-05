@@ -47,7 +47,7 @@ class _MovieViewState extends State<MovieView> {
                                 crossAxisAlignment: CrossAxisAlignment.start,                                
                                 mainAxisAlignment: MainAxisAlignment.center,  
                                 children: [
-                                  Text("Movies New",
+                                  Text("                    Movies New",
                                   style: TextStyle(
                                     fontSize: 20
                                     ,
