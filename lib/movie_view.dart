@@ -13,6 +13,8 @@ class _MovieViewState extends State<MovieView> {
 
     final controller = MovieController();
 
+  get blue => null;
+
     // Inicializa o load dos filmes
     @override
     void initState() {
@@ -41,30 +43,45 @@ class _MovieViewState extends State<MovieView> {
                       FutureBuilder<List<MovieDetalhes>> (future: controller.movie,builder: (context,snapshot) {
                         if (snapshot.connectionState != ConnectionState.done) {return CircularProgressIndicator();}
                             if (snapshot.hasData) {
-                              return Column(  
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,                                
+                                mainAxisAlignment: MainAxisAlignment.center,  
                                 children: [
                                   Text("Movies New",
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 20
+                                    ,
                                     color: Colors.white),
                                     ),                                  
                                   Container( 
-//                                    color: Colors.yellow,
-                                    height: 720,
+                                  
+                                    height: 740,
                                     width: 370,
                                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.pink,),
+                                  
                                    child: ListView.builder(
                                      itemCount: 18,
+                                     
                                       itemBuilder: (
                                        BuildContext context ,int index) {
                                         return ListTile(
-//                                          title: Text(snapshot.data[index].titulo),
-                                            title: Image.network("https://image.tmdb.org/t/p/w300"+snapshot.data[index].urlImage),
+//                                           title: Text("Título / Data : "+snapshot.data[index].titulo+" "+snapshot.data[index].data),
+//                                           
+                                          //    : Text("Lançamento em : "+snapshot.data[index].data),
+                                        contentPadding: EdgeInsets.all(30.0),                                          
+                                       // title: Image.network("https://image.tmdb.org/t/p/w300"+snapshot.data[index].urlImage),                                           
+                                         title: Text(snapshot.data[index].titulo+"                                              Lançamento em : "+snapshot.data[index].data,style: TextStyle(fontWeight: FontWeight.w900,fontSize: 20),),
+                                           subtitle:  Image.network("https://image.tmdb.org/t/p/w300"+snapshot.data[index].urlImage), 
+                                           
+                                         // leading:  Text(DateFormat("'Lançamento em :' dd/MM/yyyy").format(snapshot.data[index].data)), 
+                                          enabled: false,
+                                          dense: false,
+                                          isThreeLine: true,
                                           );
                                         }
                                        ),
                                       ),
-                                  Text(" ",style: TextStyle(fontSize: 10,color: Colors.black)),                                  
+                                  Text(" ",style: TextStyle(fontSize: 10,color: Colors.white)),                                  
                                 ],
                               );
                             } else if (snapshot.hasError) {
@@ -79,9 +96,6 @@ class _MovieViewState extends State<MovieView> {
                          ),
 //                      ElevatedButton(onPressed: () {setState(() {controller.loadMovie();});}, child: Text("Load Filmes"),)
                     ],),),
-
-//                     Center(child: Container(height: 640,width: 320,
-//                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.blue,), ),),                      
                     ],
                  )
                 )  
@@ -90,4 +104,7 @@ class _MovieViewState extends State<MovieView> {
        );
     }
 
+}
+
+class DateFormat {
 }
